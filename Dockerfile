@@ -13,7 +13,7 @@ EXPOSE 25565
 # ポートフォワーディングしてコンテナ内部では25565のまま外部とやりとりするポートを変更できます。
 # 詳しくは`Docker ポートフォワーディング`で検索してください。
 
-RUN yum update -y && yum install -y vim java-1.8.0-openjdk wget unzip
+RUN yum update -y && yum install -y vim java-1.8.0-openjdk unzip
 
 RUN mkdir /minecraft
 
