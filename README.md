@@ -31,7 +31,7 @@ $ docker stop minecraft
   
 中の出力を確認したいときは以下のコマンド  
 ```bash
-$ docker attach minecraft # これで中に入れるのでopコマンドなど好き勝手に。
+$ docker attach minecraft  # これで中に入れるのでopコマンドなど好き勝手に。
 ```
   
 バックアップを取りたい場合  
