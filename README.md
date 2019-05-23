@@ -53,3 +53,6 @@ $ docker ps
   
 正直[Docker Hub](https://hub.docker.com/r/itzg/minecraft-server/)にあるイメージを利用する運用でいいと思います(こなみかん  
   
+#### 改善点
+`RUN useradd mine`とやってコマンドを実行するユーザーを`root`から変更したい.  
+  
