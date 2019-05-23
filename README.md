@@ -1,10 +1,14 @@
 ## マインクラフト(バニラ鯖) with Docker
 ### 使い方(初回起動まで)
 1. server.jarを起動して生成されるファイルを,  
-   下記画像のように配置する。
+   下記画像のように配置する。  
+   ![ディレクトリ構成](https://github.com/cynynpri/minecraftdocker/blob/images/dir_tree.png)
 2. その配置し終えたフォルダを`minecraft_server`にリネームする.  
 3. `minecraft_server`をzip化して`minecraft_server.zip`にする.  
+   ![zipにするファイル](https://github.com/cynynpri/minecraftdocker/blob/images/ziptarget.png)
+   ![zip化後](https://github.com/cynynpri/minecraftdocker/blob/images/ziped_img.png)
 4. git cloneして`Dockerfile`と同一のディレクトリにminecraft_server.zipを配置.  
+   ![このようにしてほしい](https://github.com/cynynpri/minecraftdocker/blob/images/dockerfilewithzip.png)
 5. 下記コマンドでコンテナイメージをビルド.  
 ```bash
 $ docker build -t minecraft .
