@@ -25,7 +25,8 @@ USER minecraft
 
 RUN mkdir /home/minecraft/servers
 WORKDIR /home/minecraft/servers
-RUN curl -sSL https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar > server.jar
+# RUN curl -sSL https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar > server.jar
+# server.jarの実体は各自で取得.
 RUN java -jar server.jar
 CMD echo 'eula=true' > eula.txt && sed -i -e "s/level-seed=/level-seed=1167325225671706871/g" server.properties && java -Xms4096M -Xmx4096M -jar server.jar
 
