@@ -27,7 +27,7 @@ WORKDIR /home/minecraft/servers
 # RUN curl -sSL https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar > server.jar
 # server.jarの実体は各自で取得.
 USER root
-RUN apt-get remove curl -qy && apt-get autoremove -qy && \
+RUN apt-get purge -qy --auto-remove curl && apt-get autoremove -qy && \
     apt-get clean -q && rm -rf /var/lib/apt/lists/*
 USER minecraft
 RUN java -jar server.jar
