@@ -34,7 +34,7 @@ RUN java -jar server.jar
 # seed setting.
 RUN sed -i -e "s/level-seed=/level-seed=1167325225671706871/g" server.properties
 # spawn-protection setting.
-RUN sed -i -e "s/spawn-protection=16/spawn-protection=0/g"
+RUN sed -i -e "s/spawn-protection=16/spawn-protection=0/g" server.properties
 # eula setting
 RUN echo 'eula=true' > eula.txt
 
