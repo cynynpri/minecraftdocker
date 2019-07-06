@@ -1,7 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER cyan_nyan
-LABEL version="0.1.0"
+LABEL version="0.1.0" maintainer=cyan_nyan
 
 EXPOSE 25565
 
@@ -27,6 +26,16 @@ RUN mkdir /home/minecraft/servers
 WORKDIR /home/minecraft/servers
 # RUN curl -sSL https://launcher.mojang.com/v1/objects/d0d0fe2b1dc6ab4c65554cb734270872b72dadd6/server.jar > server.jar
 # server.jarの実体は各自で取得.
+USER root
+RUN apt-get remove curl -qy && apt-get autoremove -qy && \
+    apt-get clean -q && rm -rf /var/lib/apt/lists/*
+USER minecraft
 RUN java -jar server.jar
-CMD echo 'eula=true' > eula.txt && sed -i -e "s/level-seed=/level-seed=1167325225671706871/g" server.properties && java -Xms4096M -Xmx4096M -jar server.jar
+# seed setting.
+RUN sed -i -e "s/level-seed=/level-seed=1167325225671706871/g" server.properties
+# spawn-protection setting.
+RUN sed -i -e "s/spawn-protection=16/spawn-protection=0/g"
+# eula setting
+RUN echo 'eula=true' > eula.txt
 
+CMD java -jar server.jar
