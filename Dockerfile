@@ -40,5 +40,5 @@ RUN ./usr/bin/unzip /minecraft/minecraft_server.zip
 # 上記のコマンドでminecraft_server.zipは/minecraft_serverというディレクトリに変換されます。
 
 WORKDIR /minecraft_server
-CMD echo "eula=true" > eula.txt && java -jar server.jar
+CMD echo "eula=true" > eula.txt && java -jar server.jar -Dlog4j2.formatMsgNoLookups=true
 ## end dockerfile.
